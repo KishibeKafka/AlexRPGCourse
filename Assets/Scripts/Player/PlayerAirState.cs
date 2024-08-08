@@ -22,7 +22,6 @@ public class PlayerAirState : PlayerState
 
         if (player.isGroundDetected())
         {
-            player.ZeroVelocity();
             stateMachine.ChangeState(player.idleState);
         }
 

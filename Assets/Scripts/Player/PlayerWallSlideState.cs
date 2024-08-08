@@ -39,7 +39,7 @@ public class PlayerWallSlideState : PlayerState
         } else
         { player.SetVelocity(0, rb.velocity.y * 0.7f); }
 
-        if (player.isGroundDetected())
+        if (player.isGroundDetected() || !player.isWallDetected())
             stateMachine.ChangeState(player.idleState);
     }
 }

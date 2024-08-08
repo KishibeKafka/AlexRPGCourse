@@ -20,7 +20,12 @@ public class PlayerMoveState : PlayerGroundedState
 
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        if (xInput == 0 || player.isWallDetected())
+        if (xInput == 0)
             stateMachine.ChangeState(player.idleState);
+        else if (player.isWallDetected())
+        {
+            player.FlipController(rb.velocity.x);
+            stateMachine.ChangeState(player.idleState);
+        }
     }
 }
