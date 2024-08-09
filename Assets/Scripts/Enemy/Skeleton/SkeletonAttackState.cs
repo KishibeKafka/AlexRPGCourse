@@ -25,7 +25,7 @@ public class SkeletonAttackState : EnemyState
     {
         base.Update();
 
-        enemy.ZeroVelocity();
+        enemy.SetVelocity(0, rb.velocity.y);
 
         if (triggerCalled)
         {
