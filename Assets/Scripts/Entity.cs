@@ -65,6 +65,7 @@ public class Entity : MonoBehaviour
         if (isKnocked)
             return;
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
+        FlipController(_xVelocity);
     }
     public void ZeroVelocity()
     {
