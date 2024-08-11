@@ -23,7 +23,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         cloneTimer -= Time.deltaTime;
         if (cloneTimer < 0)
         {
-            sr.color = new Color(1, 1, 1, sr.color.a - Time.deltaTime * colorLosingSpeed);
+            sr.color = new Color(sr.color.r ,sr.color.g, sr.color.b, sr.color.a - Time.deltaTime * colorLosingSpeed);
             if (sr.color.a <= 0)
                 Destroy(gameObject);
         }
