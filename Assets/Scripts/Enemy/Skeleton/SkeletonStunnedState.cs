@@ -18,7 +18,7 @@ public class SkeletonStunnedState : EnemyState
 
         landed = false;
         stateTimer = enemy.stunDuration;
-        enemy.SetVelocity(-enemy.facingDir * enemy.stunDirection.x,enemy.stunDirection.y);
+        rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x,enemy.stunDirection.y);
     }
 
     public override void Exit()
