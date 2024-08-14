@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2370140512986765398
 SpriteRenderer:
@@ -120,7 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339a6a6ecc22656439120ecd99bc290e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growSpeed: 5
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!58 &5646890798355045461
 CircleCollider2D:
   m_ObjectHideFlags: 0

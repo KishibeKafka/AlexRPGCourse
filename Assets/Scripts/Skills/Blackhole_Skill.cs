@@ -49,4 +49,6 @@ public class Blackhole_Skill : Skill
         }
         return false;
     }
+
+    public float GetBlackholeRadius() => maxSize / 2;
 }
