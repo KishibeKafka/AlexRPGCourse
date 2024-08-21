@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Clone_Skill_Controller : MonoBehaviour
 {
+    private Player player;
     private SpriteRenderer sr;
     private Animator anim;
     [SerializeField] private float colorLosingSpeed;
@@ -40,7 +41,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
         transform.position = _newTransform.position + _offset;
         cloneTimer = _cloneDuration;
-
+        player = PlayerManager.instance.player;
         closestEnemy = _closestEnemy;
         canDuplicateClone = _canDuplicate;
         chanceToDuplicate = _chanceToDuplicate;
@@ -58,7 +59,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         foreach (var hit in colliders)
         {
             if (hit.GetComponent<Enemy>() != null)
-                hit.GetComponent<Enemy>().Damage();
+                player.stats.DoDamage(hit.GetComponent<CharacterStats>());
 
             if (canDuplicateClone)
             {

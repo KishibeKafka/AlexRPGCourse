@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Crystal_Skill_Controller : MonoBehaviour
 {
+    private Player player;
     private Animator anim => GetComponent<Animator>();
     private CircleCollider2D cd => GetComponent<CircleCollider2D>();
 
@@ -24,6 +25,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
         canMove = _canMove;
         moveSpeed = _moveSpeed;
         closestEnemy = _closestEnemy;
+        player = PlayerManager.instance.player;
     }
 
     public void ChooseRandomEnemy()
@@ -63,7 +65,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
         foreach (var hit in colliders)
         {
             if (hit.GetComponent<Enemy>() != null)
-                hit.GetComponent<Enemy>().Damage();
+                player.stats.DoMagicDamage(hit.GetComponent<CharacterStats>());
         }
     }
 

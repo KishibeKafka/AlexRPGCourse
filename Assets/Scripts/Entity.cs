@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public EntityFX fx { get; private set; }
     public SpriteRenderer sr { get; private set; }
+    public CharacterStats stats { get; private set; }
+    public CapsuleCollider2D cd { get; private set; }
     #endregion
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
@@ -27,6 +29,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
 
+    public System.Action onFlipped;
+
     protected virtual void Awake()
     {
 
@@ -38,6 +42,8 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFX>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        stats = GetComponent<CharacterStats>();
+        cd = GetComponent<CapsuleCollider2D>();
     }
 
     protected virtual void Update()
@@ -45,9 +51,8 @@ public class Entity : MonoBehaviour
 
     }
 
-    public virtual void Damage()
+    public virtual void DamageImpact()
     {
-        fx.StartCoroutine("FlashFX");
         StartCoroutine("HitKnockback");
         // Debug.Log(gameObject.name + " was damaged.");
     }
@@ -96,6 +101,9 @@ public class Entity : MonoBehaviour
         facingDir *= -1;
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+
+        if (onFlipped != null)
+            onFlipped();
     }
 
     public void FlipController(float _x)
@@ -111,13 +119,8 @@ public class Entity : MonoBehaviour
     }
     #endregion
 
-    public void MakeTransparent(bool _transparent)
+    public virtual void Die()
     {
-        if (_transparent)
-            sr.color = Color.clear;
-        else
-        {
-            sr.color = Color.white;
-        }
+
     }
 }
