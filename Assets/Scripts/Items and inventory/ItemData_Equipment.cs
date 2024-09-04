@@ -16,6 +16,8 @@ public class ItemData_Equipment : ItemData
 {
     public EquipmentType equipmentType;
 
+    public ItemEffect[] itemEffects;
+
     [Header("Major stats")]
     public int strength;
     public int agility;
@@ -37,6 +39,15 @@ public class ItemData_Equipment : ItemData
     public int fireDamage;
     public int iceDamage;
     public int lighteningDamage;
+
+    public void ExecuteItemEffect()
+    {
+        foreach (var item in itemEffects)
+        {
+            item.ExecuteEffect();
+        }
+    }
+
     public void AddModifiers()
     {
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();

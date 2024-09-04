@@ -10,21 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc4bbfc2d74b0c841bd6e0ef1ba8c5d7, type: 3}
-  m_Name: Plate armor
+  m_Name: Stolen sword
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Nice armor
-  icon: {fileID: -1581127718, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  equipmentType: 1
+  itemName: Stolen sword
+  icon: {fileID: 1526008332, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 17.4
+  equipmentType: 0
+  itemEffects:
+  - {fileID: 0}
   strength: 0
-  agility: 0
+  agility: 5
   intelligence: 0
   vitality: 0
-  damage: 0
-  critChance: 0
+  damage: 12
+  critChance: 7
   critPower: 0
-  health: 15
-  armor: 10
+  health: 0
+  armor: 0
   evasion: 0
   magicResistance: 0
   fireDamage: 0
